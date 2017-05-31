@@ -358,7 +358,8 @@ window.onload = function() {
   var answerBody = $('#messageBody');
   var dateTime = $("#dateTime");
   var chipIMG = $("#chipimg");
-  var chip = $(".chip")
+  var chip = $(".chip");
+  chip.text(" ");
 
   var subject = firebase.database().ref('subject/' + sid + '/questions/' + qid );
   subject.on('value', function(snapshot) {
@@ -368,7 +369,13 @@ window.onload = function() {
     answerBody.text(data.body);
     dateTime.text(data.time);
     chipIMG.attr('src', data.photoUrl);
-    chip.append(data.name)
+    console.log(chipIMG.children().length)
+    // if (chip.children().length < 1) {
+    //     chip.append(data.name);
+    // }
+    chip.text(" ");
+    chip.append(data.name);
+    console.log(chip.text());
     // var imgUrl = data['image'];
     // var ht = data['class'];
     // x.css('background-image', 'url(' + imgUrl + ')');

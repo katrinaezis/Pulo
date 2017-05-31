@@ -28,6 +28,10 @@ h3, h4 {
   margin-right: 10px;
 }
 
+.even {
+  margin-left: 24px;
+}
+
 .pic {
   height: 40px;
 }
@@ -103,6 +107,11 @@ footer {
   background-color: white;
   padding: 5%;
 }
+
+#please {
+  width: 100%;
+}
+
 
 #answerHeader #messageBody {
   font-size: 1.25em;

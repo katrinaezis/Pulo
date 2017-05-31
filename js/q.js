@@ -472,4 +472,6 @@ form.style.display = 'none';
     x.css('background-size', 'cover');
     headText.text(ht);
   });
+
+  $('.modal').modal();
 };
