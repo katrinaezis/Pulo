@@ -10,13 +10,35 @@
 'use strict';
 
 $(document).ready(function () {
+    // // checkSetup();
+    //  localStorage.setItem('user', user);
+    // input = localStorage.getItem('schoolName');
+    // if (input != null) {
+    //     localStorage.removeItem('schoolName');
+    // }
 
     // shortcuts for DOM elements
-    this.userPic = document.getElementById('user-pic');
-    this.userName = document.getElementById('user-name');
-    this.signupButton = document.getElementById("sign-in-button");
-    this.backButton = document.getElementById('back-button');
-    this.signoutButton = document.getElementById("sign-out");
+    var userPic = document.getElementById('user-pic');
+    var userName = document.getElementById('user-name');
+    var signupButton = document.getElementById("sign-in-button");
+    var backButton = document.getElementById('back-button');
+    var signoutButton = document.getElementById("sign-out");
+    var math = $("#math").click(function() {
+        localStorage.setItem('subject', math.attr("value"));
+        window.location.href = "./questions.html";
+    });
+    var english = $("#english").click(function() {
+        localStorage.setItem('subject', english.attr("value"));
+        window.location.href = "./questions.html";
+    })
+    var psych = $("#psych").click(function() {
+        localStorage.setItem('subject', psych.attr("value"));
+        window.location.href = "./questions.html";
+    });
+    var bio = $("#bio").click(function() {
+        localStorage.setItem('subject', bio.attr("value"));
+        window.location.href = "./questions.html";
+    });
 
     // add event listeners
     if (this.signupButton != null) {
@@ -36,24 +58,3 @@ $(document).ready(function () {
     }
 
 });
-
-function subjects() {
-    this.checkSetup();
-
-    // shortcuts for DOM elements
-    this.userPic = document.getElementById('user-pic');
-    this.userName = document.getElementById('user-name');
-    this.signupButton = document.getElementById("sign-in-button");
-    this.backButton = document.getElementById('back-button');
-    this.signoutButton = document.getElementById("sign-out");
-
-
-}
-
-checkSetup = function() {
-  if (!window.firebase || !(firebase.app instanceof Function) || !firebase.app().options) {
-    window.alert('You have not configured and imported the Firebase SDK. ' +
-        'Make sure you go through the codelab setup instructions and make ' +
-        'sure you are running the codelab using `firebase serve`');
-  }
-};

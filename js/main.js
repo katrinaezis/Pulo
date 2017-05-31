@@ -19,8 +19,7 @@ function PeerIo() {
   this.messageList = document.getElementById('messages');
   this.messageForm = document.getElementById('message-form');
   this.messageInput = document.getElementById('message');
-  this.submitMsgButton = document.getElementById('submit');
-  this.submitPostButton = document.getElementById('submitPost');
+  this.submitButton = document.getElementById('submit');
   this.submitImageButton = document.getElementById('submitImage');
   this.imageForm = document.getElementById('image-form');
   this.mediaCapture = document.getElementById('mediaCapture');
@@ -310,7 +309,7 @@ PeerIo.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
 // Enables or disables the submit button depending on the values of the input
 // fields.
 PeerIo.prototype.toggleButton = function() {
-  if (this.textInput.value) {
+  if (this.messageInput.value) {
     this.submitButton.removeAttribute('disabled');
   } else {
     this.submitButton.setAttribute('disabled', 'true');
@@ -424,6 +423,3 @@ window.onload = function() {
   }
 });
 };
-
- 
-
