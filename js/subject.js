@@ -107,21 +107,32 @@ PeerIo.prototype.checkSetup = function() {
 $(document).ready(function () {
     window.peerio = new PeerIo();
 
+    $(".fixed-action-btn").css('display', 'none');
+
     var math = $("#math").click(function() {
-        localStorage.setItem('subject', math.attr("value"));
-        window.location.href = "./questions.html";
+        math.css('background-color', '#bbdefb');
     });
     var english = $("#english").click(function() {
-        localStorage.setItem('subject', english.attr("value"));
-        window.location.href = "./questions.html";
+        english.css('background-color', '#bbdefb');
     })
     var psych = $("#psych").click(function() {
-        localStorage.setItem('subject', psych.attr("value"));
-        window.location.href = "./questions.html";
+        psych.css('background-color', '#bbdefb');
     });
     var bio = $("#bio").click(function() {
-        localStorage.setItem('subject', bio.attr("value"));
-        window.location.href = "./questions.html";
+        bio.css('background-color', '#bbdefb');
+        $(".fixed-action-btn").css('display', 'block');
+    });
+    var spanish = $("#spanish").click(function() {
+        spanish.css('background-color', '#bbdefb');
+    });
+    var film = $("#film").click(function() {
+        film.css('background-color', '#bbdefb');
+    })
+    var chem = $("#chem").click(function() {
+        chem.css('background-color', '#bbdefb');
+    });
+    var physics = $("#physics").click(function() {
+        physics.css('background-color', '#bbdefb');
     });
 
     // add event listeners

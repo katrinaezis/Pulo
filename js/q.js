@@ -86,6 +86,7 @@ PeerIo.prototype.loadMessages = function() {
 
 // Saves a new message on the Firebase DB.
 PeerIo.prototype.saveMessage = function(e) {
+    $('#modal1').modal('close');
   e.preventDefault();
   // Check that the user entered a message and is signed in.
   if (this.questionInput.value && this.checkSignedInWithMessage()) {
@@ -179,6 +180,7 @@ PeerIo.prototype.signIn = function() {
 PeerIo.prototype.signOut = function() {
   // Sign out of Firebase.
   this.auth.signOut();
+  window.location.href = "./signin.html";
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
@@ -457,8 +459,8 @@ function showQuestion() {
 
 
 window.onload = function() {
-var form = document.getElementById('question-form');
-form.style.display = 'none';
+// var form = document.getElementById('question-form');
+// form.style.display = 'none';
     
   window.peerio = new PeerIo();
   var x = $('#header');

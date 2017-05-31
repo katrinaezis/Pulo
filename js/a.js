@@ -175,6 +175,7 @@ PeerIo.prototype.signIn = function() {
 PeerIo.prototype.signOut = function() {
   // Sign out of Firebase.
   this.auth.signOut();
+  window.location.href = "./signin.html";
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.

@@ -6,6 +6,7 @@
   <meta name="description" content="Learn how to use the Firebase platform on the Web">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>peer.io</title>
+  <link rel="shortcut icon" href="./images/favi.png" type="image/x-icon">
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
@@ -76,7 +77,16 @@
             <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
                 <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                     <h2>peer.io</h2>
-
+                </div>
+                <div id="user-container">
+                    <div hidden id="user-pic"></div>
+                    <div hidden id="user-name"></div>
+                    <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                    Sign-out
+                    </button>
+                    <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                    <i class="material-icons">account_circle</i>Sign-in with Google
+                    </button>
                 </div>
             </div>
         </header>
@@ -95,7 +105,7 @@
                 </div>
                 <div class="col s12 m4 center-align hsv">  
                     <button id="homeSubmit" class="btn-large waves-effect waves-light blue accent-2" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
+                        <i class="white-text material-icons right">send</i>
                     </button>
                 </div>
             </div>

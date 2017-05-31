@@ -59,8 +59,7 @@
 
 
 
-  <script src="js/main2.js"></script>
-  <script src="js/firebase.js"></script>
+  <script src="js/subject.js"></script>
 
 </head>
 <body>
@@ -86,67 +85,112 @@
     </div>
   </header>
 
+   <div class="fixed-action-btn">
+    <a href="./index.html" class="btn-floating btn-large red">
+      <i class="large material-icons">done</i>
+    </a>
+  </div>
+
   <main class="mdl-layout__content mdl-color--grey-100">
     <div id="dashboard-container" class="row">
         <!-- Subjects Container -->
         <div id="dashboard-subjects" class="col s12">
           <div id="subjects-title" class="center-align">
-                  <h1>Subjects</h1>
+                  <h1>Select your classes</h1>
           </div>
            <div class="row" >
               <div class="col s3" id="math" value="-KlOkyUMiC1LGdV3N0gA">
                 <div class="card">
                   <div class="card-image">
                     <img src="./images/math.jpg">
-                    <span class="card-title">Algebra II</span>
                   </div>
-                  <div class="card-action center-align">
-                    <a class='even' href="/forum.html"><i class="material-icons">chat_bubble_outline</i></a>
-                    <a class='even' href="#"><i class="material-icons">new_releases</i></a>
-                    <a class='even' href="#"><i class="material-icons">info_outline</i></a>
-                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Algebra II</span>                       
+                    <p>Mr. Hill's 4th period Honors Algebra II class.</p>
+                    </div>
                 </div>
               </div>
               <div class="col s3" id="english" value="-KlOkyUOtqeju56fbngt">
                 <div class="card">
                   <div class="card-image">
                     <img src="./images/eng.jpg">
-                    <span class="card-title">AP English</span>
                   </div>
-                  <div class="card-action center-align">
-                    <a class='even' href="/forum.html"><i class="material-icons">chat_bubble_outline</i></a>
-                    <a class='even' href="#"><i class="material-icons">new_releases</i></a>
-                    <a class='even' href="#"><i class="material-icons">info_outline</i></a>
-                  </div>
+                  <div class="card-content">
+                    <span class="card-title">AP English</span>                       
+                    <p>Mrs. Hall's 3rd period AP English Composition class.</p>
+                    </div>
                 </div>
               </div>
               <div class="col s3" id="psych" value="-KlOkyUPgo5ELRN5bbim">
                 <div class="card">
                   <div class="card-image">
                     <img src="./images/psychology.jpg">
-                    <span class="card-title">AP Psychology</span>
                   </div>
-                  <div class="card-action center-align">
-                    <a class='even' href="/forum.html"><i class="material-icons">chat_bubble_outline</i></a>
-                    <a class='even' href="#"><i class="material-icons">new_releases</i></a>
-                    <a class='even' href="#"><i class="material-icons">info_outline</i></a>
-                  </div>
+                   <div class="card-content">
+                        <span class="card-title">AP Psychology</span>                       
+                        <p>Mr. Golly's 1st period AP/IB Psychology class.</p>
+                    </div>
                 </div>
               </div>
               <div class="col s3" id="bio" value="-KlOkyUPgo5ELRN5bbin">
                 <div class="card">
                   <div class="card-image">
                     <img src="images/bio.jpg">
-                    <span class="card-title">Honors Biology</span>
+                    
                   </div>
-                  <div class="card-action center-align">
-                    <a class='even' href="/forum.html"><i class="material-icons">chat_bubble_outline</i></a>
-                    <a class='even' href="#"><i class="material-icons">new_releases</i></a>
-                    <a class='even' href="#"><i class="material-icons">info_outline</i></a>
-                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Honors Biology</span>                       
+                    <p>Mrs. Frank's 6th period Honors/AP Biology class.</p>
+                    </div>
                 </div>
               </div>
             </div>
+           <div class ="row">
+            <div class="col s3" id="spanish" value="-KlOkyUPgo5ELRN5bbin">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/mex.jpg">
+                  </div>
+                  <div class="card-content">
+                      <span class="card-title">Spanish I</span>
+                        <p>Mrs. Rieger's 0 period Spanish Elective.</p>
+                    </div>
+                </div>
+              </div>
+            <div class="col s3" id="film" value="-KlOkyUPgo5ELRN5bbin">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/film.jpg">
+                  </div>
+                  <div class="card-content">
+                      <span class="card-title">IB Film</span>
+                        <p>Mrs. Neumann's 7th Period IB Film elective.</p>
+                    </div>
+                </div>
+              </div>
+              <div class="col s3" id="chem" value="-KlOkyUPgo5ELRN5bbin">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/chemdrawing.jpg">
+                  </div>
+                  <div class="card-content">
+                      <span class="card-title">Honors Chemistry</span>
+                        <p>Mr. Bell-Towne's 5th period Honors Chemistry class.</p>
+                    </div>
+                </div>
+              </div>
+              <div class="col s3" id="physics" value="-KlOkyUPgo5ELRN5bbin">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/physics.jpeg">
+                  </div>
+                  <div class="card-content">
+                      <span class="card-title">Physics I</span>
+                        <p>Mrs. Ezis' 4th Period Physics I tutoring session.</p>
+                    </div>
+                </div>
+              </div>
+              </div>
     </div>
 
       <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
