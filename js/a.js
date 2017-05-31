@@ -10,6 +10,7 @@
 'use strict';
 
 var sid = localStorage.getItem('subject');
+var qid = localStorage.getItem('questionID');
 
 // Initializes PeerIo.
 function PeerIo() {
@@ -363,15 +364,6 @@ function qclick(id) {
     window.location.href = "./answers.html";
 }
 
-function showQuestion() {
-    var form = document.getElementById('question-form');
-    if (form.style.display === 'none') {
-        form.style.display = 'block';
-    } else {
-        form.style.display = 'none';
-    }
-}
-
 ////////// ################################################### Forum Stuff ####################################### /////////////
 
 // // Loads chat messages history and listens for upcoming ones.
@@ -457,19 +449,16 @@ function showQuestion() {
 
 
 window.onload = function() {
-var form = document.getElementById('question-form');
-form.style.display = 'none';
-    
   window.peerio = new PeerIo();
-  var x = $('#header');
-  var headText = $('#header-text');
-  var subject = firebase.database().ref('subject/' + sid);
-  subject.on('value', function(snapshot) {
+  var question = firebase.database().ref('subject/' + sid + '/questions/' + qid);
+  console.log(sid);
+  question.on('value', function(snapshot) {
     var data = snapshot.val();
-    var imgUrl = data['image'];
-    var ht = data['class'];
-    x.css('background-image', 'url(' + imgUrl + ')');
-    x.css('background-size', 'cover');
-    headText.text(ht);
+    console.log(data);
+    // var imgUrl = data['image'];
+    // var ht = data['class'];
+    // x.css('background-image', 'url(' + imgUrl + ')');
+    // x.css('background-size', 'cover');
+    // headText.text(ht);
   });
 };

@@ -104,8 +104,6 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  display: inline-block;
-  vertical-align: center;
 }
 
 main, #messages-card, #question-card {
@@ -183,6 +181,18 @@ main, #messages-card, #question-card {
   vertical-align: top;
 }
 
+.dateTime {
+  font-size: .7em;
+}
+
+.message {
+  margin-bottom: 0px;
+}
+
+.dateTime {
+  margin-top: 0px;
+}
+
 
 .message-container .message {
   display: inline-block;
@@ -207,9 +217,7 @@ main, #messages-card, #question-card {
   box-sizing: border-box;
 }
 
-.messageBody {
-  margin-left: 40px;
-}
+
 
 #message-form {
   display: flex;
