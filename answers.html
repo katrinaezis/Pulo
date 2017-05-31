@@ -83,34 +83,68 @@
       </div>
     </div>
   </header>
-  <main class="mdl-layout__content mdl-color--grey-100">
-      <div id="header" class="valign-wrapper">
-          <h1 id="header-text"></h1>
-      </div>
-      <div id="questions-card-container" class="container">
-          <form id="question-form" action="#" class="row">
-            <div class="input-field col s12">
-              <input  type="text" id="question">
-              <label  for="question">Title...</label>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form id="message-form" action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="message">
+              <label class="mdl-textfield__label" for="message">Message...</label>
             </div>
-            <div class="input-field col s12">
-                <textarea id="textBody" class="materialize-textarea"></textarea>
-                <label for="textBody">Body...</label>
-            </div>
-            <div id="fuck" class="col s12 right-align">
-                <button id="submit" disabled type="submit" class="btn waves-effect waves-light">
-                    Send
-                </button>
-            </div>
-            
+            <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              Send
+            </button>
           </form>
-          <div id="questions">
+          <form id="image-form" action="#">
+            <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+            <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect blue white-text">
+              <i class="material-icons white-text">image</i>
+            </button>
+          </form>
+    </div>
+  </div>
+
+
+  <main class="mdl-layout__content mdl-color--grey-100">
+      <div class="fixed-action-btn">
+        <a href="#modal1" class="btn-floating btn-large red">
+        <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+    <div id="messages-card-container" class="">
+        <div id="answerHeader" class="row container">
+            <h4 id="answerTitle" class="col s12"></h4>
+            <p id="dateTime" class="col s12 grey-text text-darken-1"></p>
+            <div id="messageBody" class="grey-text text-darken-2 col s12"></div>
+             <div class="col s12 right-align">
+                 <div class="chip">
+                     <img id="chipimg" class="chipimg" src="" alt="Contact Person">
+                </div>
+            </div>
+        </div>
+        <div id="sleepy" class="container">
+            
+        </div>
+        
+
+      <!-- Messages container -->
+      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="messages">
+            <span id="message-filler"></span>
           </div>
+          
+        </div>
       </div>
+
       <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
         <div class="mdl-snackbar__text"></div>
         <button class="mdl-snackbar__action" type="button"></button>
       </div>
+
     </div>
   </main>
 </div>

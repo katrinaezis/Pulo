@@ -97,6 +97,21 @@ footer {
   margin: auto;
 }
 
+#answerHeader {
+  width: 100%;
+  min-height:200px;
+  background-color: white;
+  padding: 5%;
+}
+
+#answerHeader #messageBody {
+  font-size: 1.25em;
+}
+
+#answerHeader #answerTitle {
+  font-size: 30pt;
+}
+
 /* TODO: vert align*/
 #header {
   width: 100%;
@@ -106,8 +121,9 @@ footer {
   text-align: center;
 }
 
+/*might mess other things up*/
 main, #messages-card, #question-card {
-  height: 100%;
+  height: calc(100% -200px);
   padding-bottom: 0;
 }
 
@@ -209,12 +225,17 @@ main, #messages-card, #question-card {
 }
 .message-container .name {
   display: inline-block;
-  width: 100%;
+  /*width: 100%;*/
   padding-left: 40px;
   color: #bbb;
   font-style: italic;
   font-size: 12px;
   box-sizing: border-box;
+}
+
+.message-container .nd {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 
@@ -286,7 +307,7 @@ main, #messages-card, #question-card {
   max-width: 300px;
   max-height: 200px;
 }
-#mediaCapture {
+#mediaCapture, #sleepy {
   display: none;
 }
 @media screen and (max-width: 610px) {
