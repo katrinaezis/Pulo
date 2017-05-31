@@ -70,6 +70,7 @@ PeerIo.prototype.onAuthStateChanged = function(user) {
 
   } else { // User is signed out!
     // Hide user's profile and sign-out button.
+    window.location.href = "./signin.html";
     $('#messages-card').css('display', 'none');
     this.userName.setAttribute('hidden', 'true');
     this.userPic.setAttribute('hidden', 'true');
@@ -92,7 +93,9 @@ PeerIo.prototype.checkSignedInWithMessage = function() {
     timeout: 2000
   };
   this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
+  
   return false;
+  
 };
 
 // Checks that the Firebase SDK has been correctly setup and configured.
