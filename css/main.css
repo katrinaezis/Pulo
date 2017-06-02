@@ -1,3 +1,8 @@
+/*
+  Katrina Ezis
+  Capstone 2017
+  peer.io
+*/
 @import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
 
 html, body {
@@ -362,7 +367,7 @@ main, #messages-card, #question-card {
  .input-field input[type=text]:focus + label {
      color: #448aff;
    }
-   /* label underline focus color */
+   
    .input-field input[type=text]:focus {
      border-bottom: 1px solid #448aff;
      box-shadow: 0 1px 0 0 #000;

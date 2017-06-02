@@ -1,12 +1,3 @@
-// var config = {
-//     apiKey: "AIzaSyBS-_ltv2Ba09OWG5xlr-8jZvEXfexnnJk",
-//     authDomain: "pulo-934f2.firebaseapp.com",
-//     databaseURL: "https://pulo-934f2.firebaseio.com",
-//     projectId: "pulo-934f2",
-//     storageBucket: "pulo-934f2.appspot.com",
-//     messagingSenderId: "97969479543"
-// };
-// firebase.initializeApp(config);
 'use strict';
 var sid = localStorage.getItem('subject');
 var qid = localStorage.getItem('questionID');
@@ -43,8 +34,6 @@ function PeerIo() {
   var buttonTogglingHandler = this.toggleButton.bind(this);
   this.messageInput.addEventListener('keyup', buttonTogglingHandler);
   this.messageInput.addEventListener('change', buttonTogglingHandler);
-  // this.postInput.addEventListener('keyup', buttonTogglingHandler);
-  // this.postInput.addEventListener('change', buttonTogglingHandler);
 
   // Events for image upload.
   this.submitImageButton.addEventListener('click', function(e) {
@@ -365,23 +354,12 @@ window.onload = function() {
   var subject = firebase.database().ref('subject/' + sid + '/questions/' + qid );
   subject.on('value', function(snapshot) {
     var data = snapshot.val();
-    console.log(data)
     answerTitle.text(data.title);
     answerBody.text(data.body);
     dateTime.text(data.time);
     chipIMG.attr('src', data.photoUrl);
-    console.log(chipIMG.children().length)
-    // if (chip.children().length < 1) {
-    //     chip.append(data.name);
-    // }
     chip.text(" ");
     chip.append(data.name);
-    console.log(chip.text());
-    // var imgUrl = data['image'];
-    // var ht = data['class'];
-    // x.css('background-image', 'url(' + imgUrl + ')');
-    // x.css('background-size', 'cover');
-    // headText.text(ht);
   });
 
   $('.modal').modal();

@@ -1,12 +1,3 @@
-// var config = {
-//     apiKey: "AIzaSyBS-_ltv2Ba09OWG5xlr-8jZvEXfexnnJk",
-//     authDomain: "pulo-934f2.firebaseapp.com",
-//     databaseURL: "https://pulo-934f2.firebaseio.com",
-//     projectId: "pulo-934f2",
-//     storageBucket: "pulo-934f2.appspot.com",
-//     messagingSenderId: "97969479543"
-// };
-// firebase.initializeApp(config);
 'use strict';
 
 var sid = localStorage.getItem('subject');
@@ -23,17 +14,11 @@ function PeerIo() {
   this.questionInput = document.getElementById('question');
   this.submitButton = document.getElementById('submit');
   this.questionBody = document.getElementById('textBody');
-//   this.submitImageButton = document.getElementById('submitImage');
-//   this.imageForm = document.getElementById('image-form');
-//   this.mediaCapture = document.getElementById('mediaCapture');
   this.userPic = document.getElementById('user-pic');
   this.userName = document.getElementById('user-name');
   this.signInButton = document.getElementById('sign-in');
   this.signOutButton = document.getElementById('sign-out');
   this.signInSnackbar = document.getElementById('must-signin-snackbar');
-
-  // this.postInput = document.getElementById('post');
-  // this.forum = document.getElementById('forum');
 
   // Saves message on form submit.
   this.questionForm.addEventListener('submit', this.saveMessage.bind(this));
@@ -44,15 +29,6 @@ function PeerIo() {
   var buttonTogglingHandler = this.toggleButton.bind(this);
   this.questionInput.addEventListener('keyup', buttonTogglingHandler);
   this.questionInput.addEventListener('change', buttonTogglingHandler);
-  // this.postInput.addEventListener('keyup', buttonTogglingHandler);
-  // this.postInput.addEventListener('change', buttonTogglingHandler);
-
-  // Events for image upload.
-//   this.submitImageButton.addEventListener('click', function(e) {
-//     e.preventDefault();
-//     this.mediaCapture.click();
-//   }.bind(this));
-//   this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
 
   this.initFirebase();
 }
@@ -110,63 +86,6 @@ PeerIo.prototype.saveMessage = function(e) {
     });
   }
 };
-
-// Sets the URL of the given img element with the URL of the image stored in Cloud Storage.
-// PeerIo.prototype.setImageUrl = function(imageUri, imgElement) {
-//   // If the image is a Cloud Storage URI we fetch the URL.
-//   if (imageUri.startsWith('gs://')) {
-//     imgElement.src = PeerIo.LOADING_IMAGE_URL; // Display a loading image first.
-//     this.storage.refFromURL(imageUri).getMetadata().then(function(metadata) {
-//       imgElement.src = metadata.downloadURLs[0];
-//     });
-//   } else {
-//     imgElement.src = imageUri;
-//   }
-// };
-
-// Saves a new message containing an image URI in Firebase.
-// This first saves the image in Firebase storage.
-// PeerIo.prototype.saveImageMessage = function(event) {
-//   event.preventDefault();
-//   var file = event.target.files[0];
-
-//   // Clear the selection in the file picker input.
-//   this.imageForm.reset();
-
-//   // Check if the file is an image.
-//   if (!file.type.match('image.*')) {
-//     var data = {
-//       message: 'You can only share images',
-//       timeout: 2000
-//     };
-//     this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
-//     return;
-//   }
-
-//   // Check if the user is signed-in
-//   if (this.checkSignedInWithMessage()) {
-
-//     // We add a message with a loading icon that will get updated with the shared image.
-//     var currentUser = this.auth.currentUser;
-//     this.messagesRef.push({
-//       name: currentUser.displayName,
-//       imageUrl: PeerIo.LOADING_IMAGE_URL,
-//       photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
-//     }).then(function(data) {
-
-//       // Upload the image to Cloud Storage.
-//       var filePath = currentUser.uid + '/' + data.key + '/' + file.name;
-//       return this.storage.ref(filePath).put(file).then(function(snapshot) {
-
-//         // Get the file's Storage URI and update the chat message placeholder.
-//         var fullPath = snapshot.metadata.fullPath;
-//         return data.update({imageUrl: this.storage.ref(fullPath).toString()});
-//       }.bind(this));
-//     }.bind(this)).catch(function(error) {
-//       console.error('There was an error uploading a file to Cloud Storage:', error);
-//     });
-//   }
-// };
 
 // Signs-in Friendly Chat.
 PeerIo.prototype.signIn = function() {
@@ -374,93 +293,7 @@ function showQuestion() {
     }
 }
 
-////////// ################################################### Forum Stuff ####################################### /////////////
-
-// // Loads chat messages history and listens for upcoming ones.
-// PeerIo.prototype.loadPosts = function() {
-//   // Reference to the /posts/ database path.
-//   this.postsRef = this.database.ref('posts');
-//   // Make sure we remove all previous listeners.
-//   this.postsRef.off();
-
-
-// };
-
-// // Template for posts. (same as messages for now)
-// PeerIo.POST_TEMPLATE =
-//     '<div class="message-container">' +
-//       '<div class="spacing"><div class="pic"></div></div>' +
-//       '<div class="message"></div>' +
-//        '<div class="close"><i class="material-icons">close</i></div>' +
-//       '<div class="name"></div>' +
-//     '</div>';
-
-// PeerIo.prototype.displayPost = function(key, name, text, picUrl, imageUri) {
-//   var div = document.getElementById(key);
-//   // If an element for that message does not exists yet we create it.
-//   if (!div) {
-//     var container = document.createElement('div');
-//     container.innerHTML = PeerIo.POST_TEMPLATE;
-//     div = container.firstChild;
-//     div.setAttribute('id', key);
-//     this.forum.appendChild(div);
-//   }
-//   if (picUrl) {
-//     div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
-//   }
-//   div.querySelector('.name').textContent = name;
-//   var messageElement = div.querySelector('.message'); // the message in the post
-//   if (text) { // If the message is text.
-//     messageElement.textContent = text;
-//     // Replace all line breaks by <br>.
-//     messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
-//   } else if (imageUri) { // If the message is an image. 
-//     var image = document.createElement('img');
-//     image.addEventListener('load', function() {
-//       this.forum.scrollTop = this.forum.scrollHeight;
-//     }.bind(this));
-//     this.setImageUrl(imageUri, image);
-//     messageElement.innerHTML = '';
-//     messageElement.appendChild(image);
-//   }
-//   // Show the card fading-in and scroll to view the new message.
-//   setTimeout(function() {div.classList.add('visible')}, 1);
-//   this.forum.scrollTop = this.forum.scrollHeight;
-//   this.postInput.focus();
-// };
-
-// // Saves a new post on the Firebase DB.
-// PeerIo.prototype.savePost = function(e) {
-//   e.preventDefault();
-//   // Check that the user entered a post and is signed in.
-//   if (this.postInput.value && this.checkSignedInWithMessage()) {
-//     var currentUser = this.auth.currentUser;
-//     // Add a new message entry to the Firebase Database.
-//     var date = $.now();
-//     console.log(date);
-//     alert("kk")
-//     this.postsRef.push({
-//       name: currentUser.displayName,
-//       title: this.postInput.value,
-//       text: this.postInput.value,
-//       answered: false,
-//       time: date
-//       // subject: some way to pull the subject
-//     }).then(function() {
-//       // Clear message text field and SEND button state.
-//       PeerIo.resetMaterialTextfield(this.postInput);
-//       this.toggleButton();
-//     }.bind(this)).catch(function(error) {
-//       console.error('Error writing new post to Firebase Database', error);
-//     });
-//   }
-// };
-
-
-
 window.onload = function() {
-// var form = document.getElementById('question-form');
-// form.style.display = 'none';
     
   window.peerio = new PeerIo();
   var x = $('#header');
